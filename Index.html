@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        var options = ["r", "p" ,"s"];
+        var wins = 0;
+        var losses = 0;
+        var tie = 0;
+       
+        
+        alert("Lets play rock paper scissors!");
+
+        for (var i = 0; i < 10; i++){
+
+            var playerInput = prompt("rock paper or siccors?? please enter  r p or a for your answer ").toLowerCase();
+            var computerInput = options[Math.floor(Math.random() * options.length)];
+     
+
+            if (playerInput === "r" || playerInput === "s" || playerInput === "p"){
+
+              if (playerInput === "r" && computerInput === "s" || 
+                  playerInput === "p" && computerInput === "r" ||
+                  playerInput === "s" && computerInput === "p") {
+
+                    wins++;
+                    alert("Woow Nice one! you got me!")
+
+                } else if (playerInput == computerInput){
+                    tie++;
+                    alert("Its a Tie!"); 
+
+                } else {
+                    losses++;
+                    alert("good luck next time!");
+                } 
+             } else {
+                    alert("thats not an option pal....  try again.");
+                    i--;
+             }
+        }
+
+        
+            alert("now its time to see who the real winner is");
+            alert("wins: " + wins + " Losses: " + losses + " ties: " + tie);
+
+        if (wins > losses && wins > tie) {
+
+            alert("you deeeed it you da best man");
+
+        } else if (losses > wins && losses > tie){
+
+            alert("you lost punk...");
+        } else {
+            
+            alert ("its a tie!");
+        }
+
+
+
+        console.log(computerInput);
+
+    </script>
+
+</body>
+</html>
