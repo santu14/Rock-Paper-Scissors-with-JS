@@ -1,72 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
-    <script>
 
-        var options = ["r", "p" ,"s"];
+<body>
+
+    <script>
+        // --- Set game variables
+        var options = ["r", "p", "s"];
         var wins = 0;
         var losses = 0;
         var tie = 0;
-       
-        
+
         alert("Lets play rock paper scissors!");
 
-        for (var i = 0; i < 10; i++){
 
-            var playerInput = prompt("rock paper or siccors?? please enter  r p or a for your answer ").toLowerCase();
+        // --- Loop game for 10 rounds ---
+        for (var i = 0; i < 10; i++) {
+
+            // --- set player and computer input variables ---
+            var playerInput = prompt("rock paper or siccors?? please enter  r p or s for your answer ").toLowerCase();
             var computerInput = options[Math.floor(Math.random() * options.length)];
-     
 
-            if (playerInput === "r" || playerInput === "s" || playerInput === "p"){
+            // --- check player input for valid answers ---
+            if (playerInput === "r" || playerInput === "s" || playerInput === "p") {
 
-              if (playerInput === "r" && computerInput === "s" || 
-                  playerInput === "p" && computerInput === "r" ||
-                  playerInput === "s" && computerInput === "p") {
+                // --- If player wins add +1 to wins and alert player ---
+                if (playerInput === "r" && computerInput === "s" ||
+                    playerInput === "p" && computerInput === "r" ||
+                    playerInput === "s" && computerInput === "p") {
 
-                    wins++;
-                    alert("Woow Nice one! you got me!")
+                        wins++;
+                        alert("Woow Nice one! you got me!")
 
-                } else if (playerInput == computerInput){
+                // --- If both answers match add +1 to tie / aler player ---
+                } else if (playerInput == computerInput) {
                     tie++;
-                    alert("Its a Tie!"); 
+                    alert("Its a Tie!");
 
+                // --- Else declare a loss / add +1 to losses / alert player ---
                 } else {
                     losses++;
                     alert("good luck next time!");
-                } 
-             } else {
-                    alert("thats not an option pal....  try again.");
-                    i--;
-             }
+                }
+            
+            // --- If answer is not valid alert player and reset round ---
+            } else {
+                alert("thats not an option pal....  try again.");
+                i--;
+            }
         }
 
-        
+            // --- Display scoreboard ---
             alert("now its time to see who the real winner is");
             alert("wins: " + wins + " Losses: " + losses + " ties: " + tie);
 
-        if (wins > losses && wins > tie) {
+            // --- Declare wether player won lost or tied over all ---
+            if (wins > losses && wins > tie) {
+                alert("you deeeed it you da best man");
 
-            alert("you deeeed it you da best man");
+            } else if (losses > wins && losses > tie) {
+                alert("you lost punk...");
 
-        } else if (losses > wins && losses > tie){
+            } else {
+                alert("its a tie!");
 
-            alert("you lost punk...");
-        } else {
-            
-            alert ("its a tie!");
-        }
+            }
 
 
 
-        console.log(computerInput);
+        
 
     </script>
 
 </body>
+
 </html>
